@@ -1,0 +1,5 @@
+{
+  "setting_locator" : "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Navigation menu\"]/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.CheckedTextView[2]",
+  "about-locator" : "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Latest talks\"]/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[2]",
+  "about-ted-locator" : "com.ted.android.tv:id/my_list_image"
+}
