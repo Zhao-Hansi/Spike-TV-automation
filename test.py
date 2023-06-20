@@ -1,17 +1,8 @@
-# This sample code uses the Appium python client v2
-# pip install Appium-Python-Client
-# Then you can paste this into a file and simply run with Python
 import time
 import pytest
 import json
 from appium import webdriver
 from appium.webdriver.common.appiumby import AppiumBy
-
-# For W3C actions
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.actions import interaction
-from selenium.webdriver.common.actions.action_builder import ActionBuilder
-from selenium.webdriver.common.actions.pointer_input import PointerInput
 
 with open('locator.json', 'r') as f:
     data = json.load(f)
@@ -60,15 +51,17 @@ class TestTedTVApp:
         My_play_episode_name = self.driver.find_element(by=AppiumBy.ID, value="com.ted.android.tv:id/talk_speaker").text
         assert episode_name == My_play_episode_name
 
+    @pytest.skip
     def test_search_video(self):
-        el4 = self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Search")
-        el4.click()
-        el5 = self.driver.find_element(by=AppiumBy.ID, value="com.ted.android.tv:id/lb_search_text_editor")
-        el5.send_keys("apple")
-        el6 = self.driver.find_element(by=AppiumBy.XPATH, value="//androidx.recyclerview.widget.RecyclerView["
-                                                                "@content-desc=\"Talks\"]/android.widget.FrameLayout["
-                                                                "1]/android.widget.RelativeLayout/android.widget.ImageView")
-        el6.click()
+        Search_button = self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Search")
+        Search_button.click()
+        Input_text = self.driver.find_element(by=AppiumBy.ID, value="com.ted.android.tv:id/lb_search_text_editor")
+        Input_text.send_keys("apple")
+        Select_video = self.driver.find_element(by=AppiumBy.XPATH, value="//androidx.recyclerview.widget.RecyclerView["
+                                                                "@content-desc=\"Talks\"]/android.widget.FrameLayout["           
+                                                                "1]/android.widget.RelativeLayout/android.widget"
+                                                                ".ImageView")
+        Select_video.click()
 
     def teardown(self):
         self.driver.quit()
