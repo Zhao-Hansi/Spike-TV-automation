@@ -11,16 +11,17 @@ from selenium.webdriver.common.actions import interaction
 from selenium.webdriver.common.actions.action_builder import ActionBuilder
 from selenium.webdriver.common.actions.pointer_input import PointerInput
 
-caps = {}
-caps["platformName"] = "Android"
-caps["appium:deviceName"] = "xxx"
-caps["appium:appPackage"] = "tv.danmaku.bili"
-caps["appium:appActivity"] = ".MainActivityV2"
-caps["appium:newCommandTimeout"] = 6000
-caps["appium:automationName"] = "UiAutomator2"
-caps["appium:ensureWebviewsHavePages"] = True
-caps["appium:nativeWebScreenshot"] = True
-caps["appium:connectHardwareKeyboard"] = True
+caps = {
+        "platformName": "Android",
+        "appium:deviceName": "xxx",
+        "appium:appPackage": "tv.danmaku.bili",
+        "appium:appActivity": ".MainActivityV2",
+        "appium:newCommandTimeout": 6000,
+        "appium:automationName": "UiAutomator2",
+        "appium:ensureWebviewsHavePages": True,
+        "appium:nativeWebScreenshot": True,
+        "appium:connectHardwareKeyboard": True
+        }
 
 driver = webdriver.Remote("http://127.0.0.1:4723", caps)
 
