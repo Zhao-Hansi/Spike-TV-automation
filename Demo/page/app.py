@@ -12,17 +12,19 @@ class App:
 
     @classmethod
     def start(cls):
-        caps = {"platformName": "android",
-                "deviceName": "seveniruby",
-                "appPackage": "com.xueqiu.android",
-                "appActivity": ".view.WelcomeActivityAlias",
-                "autoGrantPermissions": "true",
-                "chromedriverExecutable": "/Users/seveniruby/projects/chromedriver/2.20/chromedriver",
-                "showChromedriverLog": True
-                }
-        # caps["udid"] = "emulator-5556"
+        caps = {
+            "platformName": "Android",
+            "appium:deviceName": "xxx",
+            "appium:appPackage": "tv.danmaku.bili",
+            "appium:appActivity": ".MainActivityV2",
+            "appium:newCommandTimeout": 6000,
+            "appium:automationName": "UiAutomator2",
+            "appium:ensureWebviewsHavePages": True,
+            "appium:nativeWebScreenshot": True,
+            "appium:connectHardwareKeyboard": True
+        }
 
-        cls.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
+        cls.driver = webdriver.Remote("http://127.0.0.1:4723", caps)
         cls.driver.implicitly_wait(10)
 
         # sleep(20)
