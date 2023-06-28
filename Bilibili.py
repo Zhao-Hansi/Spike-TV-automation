@@ -13,7 +13,7 @@ from selenium.webdriver.common.actions.pointer_input import PointerInput
 
 caps = {
         "platformName": "Android",
-        "appium:deviceName": "xxx",
+        "appium:deviceName": "simulator",
         "appium:appPackage": "tv.danmaku.bili",
         "appium:appActivity": ".MainActivityV2",
         "appium:newCommandTimeout": 6000,
