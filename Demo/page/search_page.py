@@ -12,4 +12,4 @@ class SearchPage(BasePage):
         return self
 
     def get_current_price(self):
-        return float(self.driver.find_element_by_id("current_price").text)
+        return float(self.driver.find_element(By.ID, "current_price").text)
