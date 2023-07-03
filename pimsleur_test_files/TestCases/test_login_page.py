@@ -12,5 +12,9 @@ class TestLoginPage:
         self.choose_user_test = library_page.choose_a_user_text()
         assert self.choose_user_test == 'Choose a User'
 
+    def test_login_page(self):
+        assert self.login_page.signIn_button_text() == "sign in with Email"
+
+
     def teardown(self):
         App.quit()

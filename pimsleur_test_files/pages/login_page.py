@@ -26,7 +26,7 @@ class LoginPage(BasePage):
                                               ".FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android"
                                               ".view.ViewGroup/android.view.ViewGroup["
                                               "1]/android.widget.ScrollView/android.view.ViewGroup/android.view"
-                                              ".ViewGroup[4]/android.widget.TextView")
+                                              ".ViewGroup[4]/android.view.ViewGroup")
     _forget_password_locator = (AppiumBy.XPATH,
                                 "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget"
                                 ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget"
@@ -44,3 +44,7 @@ class LoginPage(BasePage):
     def enter_forget_password_page(self):
         self.find_element_and_click(self._forget_password_locator)
         return ForgetPasswordPage(self.driver)
+
+    def signIn_button_text(self):
+        self.find_element_and_click(self._signIn_button_locator)
+        return self.driver.find_element(self._signIn_button_locator).text
