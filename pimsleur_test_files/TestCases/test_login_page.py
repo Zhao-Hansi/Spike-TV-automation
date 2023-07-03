@@ -1,10 +1,5 @@
-from appium import webdriver
-from appium.webdriver.common.appiumby import AppiumBy
-from appium.webdriver.webdriver import WebDriver
 
 from pimsleur_test_files.pages.app import App
-
-from pimsleur_test_files.pages.login_page import LoginPage
 
 
 class TestLoginPage:
