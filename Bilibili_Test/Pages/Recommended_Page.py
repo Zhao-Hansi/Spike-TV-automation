@@ -12,3 +12,4 @@ class RecommendedPage(BasePage):
     def click_items_button(self):
         self.driver.find_element_and_click(self._user_items_locator)
 
+

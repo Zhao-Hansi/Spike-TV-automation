@@ -1,12 +1,10 @@
 from appium import webdriver
-from selenium.webdriver.remote.webdriver import WebDriver
-from selenium.webdriver.support.wait import WebDriverWait
 
 from Bilibili_Test.Pages.Recommended_Page import RecommendedPage
 
 
 class App:
-    driver: WebDriver = None
+    driver: webdriver = None
 
     @classmethod
     def start(cls):

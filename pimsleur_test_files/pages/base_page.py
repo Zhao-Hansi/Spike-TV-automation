@@ -1,7 +1,8 @@
 from appium.webdriver.common.appiumby import AppiumBy
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.common.action_chains import ActionChains
+from appium import webdriver
 
 
 class BasePage:
@@ -10,7 +11,7 @@ class BasePage:
         (AppiumBy.ID, "tips")
     ]
 
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver: webdriver):
         self.driver = driver
 
     def find_element(self, locator):
@@ -37,7 +38,7 @@ class BasePage:
         end_location = end_element.location
         end_x = end_location['x']
         end_y = end_location['y']
-        action.press(start_x, start_y).move_to(end_x, end_y).release().perform()
+        action.press(x=start_x, y=start_y).move_to(x=end_x, y=end_y).release().perform()
 
     def swipe_from_current_to_button(self, target_element):
         action = TouchAction(self.driver)
@@ -52,7 +53,7 @@ class BasePage:
         start_y = screen_height // 2
         end_x = start_x
         end_y = start_y - 200
-        action.press(start_x, start_y, end_x, end_y)
+        action.press(x=start_x, y=start_y).move_to(x=end_x, y=end_y).release().perform()
 
     def swipe_random_down_distance(self):
         action = TouchAction(self.driver)
@@ -63,7 +64,8 @@ class BasePage:
         start_y = screen_height // 2
         end_x = start_x
         end_y = start_y + 200
-        action.press(start_x, start_y, end_x, end_y)
+        print(screen_size, start_x, start_y, end_x, end_y)
+        action.press(x=start_x, y=start_y).move_to(x=end_x, y=end_y).release().perform()
 
     def swipe_screen_until_to_element(self, locator):
         while True:
