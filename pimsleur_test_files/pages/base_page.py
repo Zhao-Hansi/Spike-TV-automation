@@ -1,5 +1,6 @@
 from appium.webdriver.common.appiumby import AppiumBy
 from appium.webdriver.common.touch_action import TouchAction
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.remote.webdriver import WebDriver
 
 
@@ -63,6 +64,14 @@ class BasePage:
         end_x = start_x
         end_y = start_y + 200
         action.press(start_x, start_y, end_x, end_y)
+
+    def swipe_screen_until_to_element(self, locator):
+        while True:
+            try:
+                self.driver.find_element(*locator)
+                break
+            except NoSuchElementException:
+                self.swipe_random_down_distance()
 
     def handle_exception(self):
         print(":exception")
