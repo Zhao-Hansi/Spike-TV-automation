@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webdriver import WebDriver
+from appium import webdriver
 
 
 class BasePage:
@@ -8,7 +8,7 @@ class BasePage:
         (By.ID, "tips")
     ]
 
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver: webdriver):
         self.driver = driver
 
     def find_element(self, locator):

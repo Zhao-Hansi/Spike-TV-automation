@@ -12,6 +12,7 @@ class TestLoginPage:
         # self.login_page.click_items_button()
         sleep(7)
         self.login_page.swipe_random_down_distance()
+        self.login_page.swipe_random_up_distance()
         sleep(3)
 
 

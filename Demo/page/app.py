@@ -1,14 +1,12 @@
 import datetime
 
 from appium import webdriver
-from selenium.webdriver.remote.webdriver import WebDriver
-from selenium.webdriver.support.wait import WebDriverWait
 
 from Demo.page.main_page import MainPage
 
 
 class App:
-    driver: WebDriver = None
+    driver: webdriver = None
 
     @classmethod
     def start(cls):
