@@ -8,7 +8,7 @@ class TestLoginPage:
         self.login_page = App.app_start()
 
     def test_login_successful(self):
-        library_page = self.login_page.login('toc@tw.com', 'Pims9999')
+        library_page = self.login_page.login()
         self.choose_user_test = library_page.choose_a_user_text()
         assert self.choose_user_test == 'Choose a User'
 
