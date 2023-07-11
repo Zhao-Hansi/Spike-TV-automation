@@ -3,6 +3,9 @@ import pytest
 import json
 from appium import webdriver
 from appium.webdriver.common.appiumby import AppiumBy
+from selenium.webdriver import ActionChains
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 
 with open('locator.json', 'r') as f:
     data = json.load(f)
@@ -26,10 +29,7 @@ class TestTedTVApp:
         self.driver.implicitly_wait(15)
 
     def test_add_to_playlist(self):
-        Feature_button = self.driver.find_element(by=AppiumBy.XPATH,
-                                                  value="//androidx.recyclerview.widget.RecyclerView["
-                                                        "@content-desc=\"Navigation menu\"]/android.widget.FrameLayout["
-                                                        "1]/android.widget.FrameLayout/android.widget.CheckedTextView[2]")
+        Feature_button = self.driver.find_element(by=AppiumBy.XPATH,value='//*["@content-desc=\"Navigation menu\"]')
         Feature_button.click()
         Episode_button = self.driver.find_element(by=AppiumBy.XPATH,
                                                   value="//androidx.recyclerview.widget.RecyclerView["
@@ -39,6 +39,10 @@ class TestTedTVApp:
         Episode_button.click()
         episode_name = self.driver.find_element(by=AppiumBy.ID, value='com.ted.android.tv:id/detail_speaker').text
         Add_playlist = self.driver.find_element(by=AppiumBy.ID, value="com.ted.android.tv:id/my_list_image")
+        uiselector_str = 'new UiSelector().className("android.widget.TextView").text("Hello")'
+        self.driver.swipe()
+        ActionChains.drag_and_drop_by_offset()
+
         Add_playlist.click()
         Add_playlist.click()
         self.driver.back()

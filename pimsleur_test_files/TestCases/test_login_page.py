@@ -1,4 +1,3 @@
-
 from pimsleur_test_files.pages.app import App
 
 
@@ -14,7 +13,6 @@ class TestLoginPage:
 
     def test_login_page(self):
         assert self.login_page.signIn_button_text() == "sign in with Email"
-
 
     def teardown(self):
         App.quit()
